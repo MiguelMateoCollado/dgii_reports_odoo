@@ -1,18 +1,19 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 {
-    'name': 'Dgii Reports',
-    'version': '1',
-    'category': 'accounting/module',
-    'summary': 'Sistema de la dgii para los reportes y demas necesidades en odoo.',
-    'description': "",
+    'name': 'DGII Reports',
+    'version': '1.0.0',
+    'summary': 'Reportes DGII para República Dominicana',
+    'description': 'Módulo para generación de reportes DGII (606, 607, 608, etc.)',
+    'author': 'Miguel Angel Mateo Collado',
+    'category': 'Accounting',
     'depends': [
-       "accounting"
+        'account',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'views/dgii_report_views.xml',
+        'data/dgii_data.xml',
     ],
     'installable': True,
-    'application': True,
-    'auto_install': False
+    'application': False,
+    'license': 'LGPL-3',
 }

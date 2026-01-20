@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Vista formulario -->
+    <record id="view_dgii_report_form" model="ir.ui.view">
+        <field name="name">dgii.report.form</field>
+        <field name="model">dgii.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="report_type"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="state" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_generate_report"
+                                type="object"
+                                string="Generar"
+                                class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista árbol -->
+    <record id="view_dgii_report_tree" model="ir.ui.view">
+        <field name="name">dgii.report.tree</field>
+        <field name="model">dgii.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="report_type"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record id="action_dgii_report" model="ir.actions.act_window">
+        <field name="name">Reportes DGII</field>
+        <field name="res_model">dgii.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú -->
+    <menuitem id="menu_dgii_root"
+              name="DGII"
+              parent="account.menu_finance"/>
+
+    <menuitem id="menu_dgii_reports"
+              name="Reportes DGII"
+              parent="menu_dgii_root"
+              action="action_dgii_report"/>
+
+</odoo>
